@@ -1,0 +1,73 @@
+Ross Hall
+ross_hall@student.uml.edu
+UMass Lowell Computer Science Student
+COMP 4610 GUI Programming 1
+Assignment No.9: Implementing a Bit of Scrabble Using Drag and Drop
+12/18/2018
+
+The bit of scrabble I am submitting for this assignment has many
+working features: 
+
+The full scrabble board is implemented as a 15 by 15
+grid. The board is randomly initialized with four different types of 
+bonus squares (tripple word score, tripple letter score, double word score, 
+double letter score). While the original version has these multipliers 
+in fixed locations on the board I chose to use random locations with each
+initialization of the board. This was easy to implement and is more
+interesting than having the multipliers in the same locations every game.
+
+Letters are placed onto the rack at random based on the initial distribution
+of letters in the assignment. This distribution is updated when new letters 
+are pulled from the pile and placed on the rack and the random selection of 
+letters from the pile is always based on the current distribution. The 
+distribution is also displayed to the user on the web page. When a user ends
+their turn by pressing the submit button the unused tiles remain on the rack 
+and only enough tiles to refill the rack to seven letters are generated. The 
+user also has the option to exchange the letters on the rack for a new set of 
+letters by pressing the dump letters button, however the user is not allowed 
+to dump letters in the middle of a turn. This is because in the future if 
+multiple people are playing against eachother, the dump will be in exchange 
+for that players turn.
+
+The tiles can be dragged from the rack and placed on a legal square on the 
+board. If the tile is not placed on a legal square it returns to the rack. 
+The logic controlling what squares are legal at any given point in the game 
+is one of the more complex aspects of this application, and I believe I went well 
+beyond what was asked for in this assignmnet. This logic works as you would
+expect for a typical game of scrabble where a user can only play letters in
+a linear fashion per turn and their word must intersect with an existing word on 
+the board, except for the first turn where the word must pass through the center
+square. Two features that are not working as a typical scrabble game would is 
+that all letters placed on the board must ALWAYS be adjacent to a square with a tile 
+on it. This was intended to ensure that the users word connects to an existing 
+word but it makes it so that the user often must spell words out of order. In the 
+future I intend to make this check more flexible such that the user can spell 
+words in any order as long as when they submit the word intersects with an existing
+word. Another feature that is not fully working is that once a player places a 
+tile it is no longer draggable even in the same turn. This feature can be added 
+in the future but it requires updating dropsets (the valid squares), which I did 
+not have time for for in this submission. However I did include a reset turn button
+allowing the use to recall the letters played during that current turn. I also intend
+to change how the state of the board is represented in the future. 
+
+Another working feature in this application is the score calculation for a word. This
+is another area where I believe I went beyond what the assignment called for especially
+because the application allows for multiple turns. When a user presses the submit button 
+ending their turn ALL of the potentially numerous 'pseudo' words created that turn are 
+detected. (I am saying pseudo because I did not implement the dictionary to check 
+that words created are valid english words). The score for all of these pseudo words 
+is then calculated with all applicable multipliers and the word is added to the completed 
+word list and the total score for the game is updated. I also included a new game button 
+allowing the user to wipe the board clean and start a new game on a new board. 
+
+Another feature I would like to improve on to imporve user experience is the error messaging. 
+I provided some basic error messaging however this was not specified in the rubric 
+for the assignment so I focused my time on other features. In the future I would like 
+to add more specific error messages informing the user what to do next. Lastly, in the future
+I would like to change some of the internal data structures used in this application 
+I used arrays to keep track of the id squares with tiles on them and valid drop 
+squares. This worked but it was messy. In the future I would like to use a bit map 
+or maybe a 2 dimenstional array of characterss to track the state of the game 
+internally. This should make the code much more elegant. 
+
+
