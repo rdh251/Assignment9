@@ -288,6 +288,11 @@ function clearBoard() {
     firstTurn = true;
     secondTurn = false;
     turnDirection = 'all';
+    let prev_filled = [];
+    let prev_dropSetGame = ['H8'];
+    let prev_dropSetTurn = [];
+    let prev_firstTurn = true;
+    let prev_secondTurn = false;
     total_score = 0;
     $('#score').text(total_score + 'pts');
     $('#wordList').empty();
