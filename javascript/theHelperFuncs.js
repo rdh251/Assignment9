@@ -132,7 +132,7 @@ function refill() {
 https://stackoverflow.com/questions/43095621/how-to-increment-letters-in-javascript-to-next-letter
 function nextChar(char) {
     let res = char == 'z' ? 'a' : char == 'Z' ? 'A' : String.fromCharCode(char.charCodeAt(0) + 1);
-    return res
+    return res;
 }
 
 /********************************************************
@@ -141,26 +141,26 @@ function nextChar(char) {
 function nextCol(c) {
     index = colLetter.indexOf(c);
     if (index === 14) {
-        return Z//null//colLetter[0];
+        return Z;//null//colLetter[0];
     }
     return colLetter[index + 1];
 }
 function prevCol(c) {
     index = colLetter.indexOf(c);
     if (index === 0) {
-        return Z//null; //colLetter[14];
+        return Z;//null; //colLetter[14];
     }
     return colLetter[index - 1];
 }
 function nextRow(i) {
     if (i === 15) {
-        return 18//null; //1;
+        return 18;//null; //1;
     }
     return i + 1;
 }
 function prevRow(i) {
     if (i === 1) {
-        return 18//null; //15;
+        return 18;//null; //15;
     }
     return i - 1;
 }
@@ -372,7 +372,6 @@ function fixDropSetTurn(id, direction){
     } else {
         dropSetTurn = dropSetTurn.filter(function(value, index, arr) {
             let col = id.charAt(0);
-            console.log(value);
             if (value.charAt(0) == col) {
                 return true;
             }
